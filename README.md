@@ -1,137 +1,177 @@
-# BlockBank - Blockchain Banking dApp on IOTA
+# BlockBank - Web3 Banking Platform
 
-## 📋 Mô tả dự án
+<div align="center">
 
-BlockBank là một ứng dụng phi tập trung (dApp) được xây dựng trên IOTA testnet sử dụng **Move smart contract** và **React + TypeScript + Tailwind CSS** frontend. Ứng dụng mô phỏng hệ thống ngân hàng số với tính năng ghi lại lịch sử giao dịch chuyển khoản lên blockchain, đảm bảo tính bất biến và minh bạch của dữ liệu giao dịch.
+![BlockBank](https://img.shields.io/badge/BlockBank-Web3%20Banking-gold?style=for-the-badge)
+![IOTA](https://img.shields.io/badge/IOTA-Testnet-blue?style=for-the-badge)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript)
+![Tailwind](https://img.shields.io/badge/Tailwind-3-38B2AC?style=for-the-badge&logo=tailwind-css)
+
+**A luxurious Web3 banking platform built on IOTA blockchain**
+
+[Live Demo](#) • [Explorer](#smart-contract-info) • [Documentation](#)
+
+</div>
+
+---
+
+## 📋 Nội dung
+
+BlockBank là một nền tảng ngân hàng kỹ thuật số phi tập trung (dApp) được xây dựng trên IOTA blockchain. Dự án này tập trung vào việc ghi lại lịch sử giao dịch chuyển khoản một cách bất biến và minh bạch thông qua smart contract.
+
+### Đặc điểm nổi bật:
+- 🔐 **Bảo mật blockchain**: Mọi giao dịch được ghi lại bất biến trên IOTA
+- 💎 **Giao diện sang trọng**: Theme đen và vàng kim, phong cách Web3 hiện đại
+- 🚀 **Smart Contract**: Sử dụng Move language trên IOTA
+- 📱 **Responsive**: Tối ưu cho mọi thiết bị
+- ⚡ **Fast & Secure**: Tận dụng sức mạnh của IOTA blockchain
+
+---
 
 ## 🎯 Mục đích
 
-Giải quyết vấn đề **thay đổi lịch sử giao dịch** trong hệ thống ngân hàng truyền thống bằng cách sử dụng công nghệ blockchain để lưu trữ bất biến các giao dịch chuyển khoản.
+### Mục tiêu chính:
+1. **Học tập và Rèn luyện**: Phát triển kỹ năng smart contract development với Move language
+2. **Giải quyết vấn đề thực tế**: Ngăn chặn việc thay đổi lịch sử giao dịch trong hệ thống ngân hàng truyền thống
+3. **Trải nghiệm Web3**: Cung cấp nền tảng để người dùng trải nghiệm công nghệ blockchain
 
-## ✨ Tính năng
+### Vấn đề giải quyết:
+- ❌ Lịch sử giao dịch có thể bị thay đổi trong hệ thống tập trung
+- ✅ Blockchain đảm bảo tính bất biến của dữ liệu giao dịch
+- ✅ Minh bạch và có thể kiểm chứng mọi lúc
 
-- 🏦 **Giao diện Digital Banking**: Giao diện React hiện đại với Tailwind CSS
-- 💸 **Chuyển khoản**: Mô phỏng chức năng chuyển khoản ngân hàng
-- ⛓️ **Blockchain Recording**: Ghi lại mọi giao dịch lên IOTA blockchain
-- 📜 **Lịch sử giao dịch**: Hiển thị lịch sử giao dịch được xác thực trên blockchain
-- 🔐 **Bất biến**: Dữ liệu giao dịch không thể bị thay đổi sau khi ghi lên chain
-- 🎨 **UI/UX Premium**: Thiết kế đẹp mắt với Tailwind CSS, dark mode, glassmorphism, animations
-- ⚡ **TypeScript**: Type-safe code với TypeScript
-- 🔥 **React Hooks**: Modern React patterns với custom hooks
-- 🎯 **Tailwind CSS**: Utility-first CSS framework
+---
 
 ## 🏗️ Kiến trúc
 
-### Smart Contract (Move)
-Nằm trong thư mục `move/`
-- **Module**: `bank_transaction`
-- **Chức năng chính**:
-  - `create_ledger()`: Khởi tạo sổ cái giao dịch
-  - `record_transaction()`: Ghi lại giao dịch lên blockchain
-  - `get_transaction_details()`: Lấy thông tin giao dịch
-
-### Frontend (React + TypeScript + Tailwind)
-Nằm trong thư mục `frontend/`
-- **Framework**: React 19 + Vite
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS 3
-- **State Management**: Custom React Hooks
-- **Components**:
-  - `Header`: Logo và wallet connection
-  - `BalanceCard`: Hiển thị số dư
-  - `TransferForm`: Form chuyển khoản
-  - `TransactionList`: Lịch sử giao dịch
-  - `Loading`: Loading overlay
-  - `SuccessModal`: Modal thông báo thành công
-
-## 📦 Thông tin Package & Transaction
-
-### Package ID
 ```
-[PACKAGE_ID_WILL_BE_HERE_AFTER_DEPLOYMENT]
+BlockUni_IOTA_ReflexMaster/
+├── move/                          # Smart Contract (IOTA Move)
+│   ├── Move.toml                  # Package configuration
+│   ├── sources/
+│   │   └── bank_transaction.move  # Main contract
+│   └── build/                     # Compiled artifacts
+│
+├── frontend-new/                  # React Frontend
+│   ├── src/
+│   │   ├── App.tsx               # Main application
+│   │   ├── index.css             # Tailwind styles
+│   │   └── main.tsx              # Entry point
+│   ├── tailwind.config.js        # Tailwind configuration
+│   └── package.json
+│
+└── README.md                      # This file
 ```
 
-### Transaction Hash (Deployment)
-```
-[TX_HASH_WILL_BE_HERE_AFTER_DEPLOYMENT]
-```
+---
 
-### Ledger Object ID
-```
-[LEDGER_ID_WILL_BE_HERE_AFTER_CREATION]
-```
+## 🚀 Cách sử dụng
 
-### Network
-- **Network**: IOTA Testnet
-- **RPC Endpoint**: https://api.testnet.iota.cafe
+### Prerequisites
+- Node.js 20.19+ hoặc 22.12+
+- IOTA CLI
+- Git
 
-## 🚀 Hướng dẫn cài đặt và chạy
-
-### 1. Clone repository
+### 1. Clone Repository
 
 ```bash
 git clone <repository-url>
 cd BlockUni_IOTA_ReflexMaster
 ```
 
-### 2. Cài đặt dependencies cho Frontend
+### 2. Setup Frontend
 
 ```bash
-cd frontend
+cd frontend-new
 npm install
-```
-
-### 3. Chạy Development Server
-
-```bash
 npm run dev
 ```
 
-Ứng dụng sẽ chạy tại: http://localhost:5173/
+Ứng dụng sẽ chạy tại: **http://localhost:5173/**
 
-### 4. Build cho Production
+### 3. Build Smart Contract
 
 ```bash
-npm run build
+cd move
+iota move build
 ```
 
-## 🔧 Cấu trúc thư mục
+### 4. Deploy Smart Contract (Optional)
 
+```bash
+# Đảm bảo đã cấu hình IOTA CLI với testnet
+iota client switch --env testnet
+
+# Deploy contract
+iota client publish --gas-budget 100000000
+
+# Tạo ledger object
+iota client call \
+  --package <PACKAGE_ID> \
+  --module bank_transaction \
+  --function create_ledger \
+  --gas-budget 10000000
 ```
-BlockUni_IOTA_ReflexMaster/
-├── move/                          # Move smart contract
-│   ├── Move.toml                  # Move package configuration
-│   ├── sources/
-│   │   └── bank_transaction.move  # Smart contract
-│   └── build/                     # Build artifacts
-├── frontend/                      # React application
-│   ├── src/
-│   │   ├── components/            # React components (Tailwind)
-│   │   │   ├── Header.tsx
-│   │   │   ├── BalanceCard.tsx
-│   │   │   ├── TransferForm.tsx
-│   │   │   ├── TransactionList.tsx
-│   │   │   ├── Loading.tsx
-│   │   │   └── SuccessModal.tsx
-│   │   ├── hooks/                 # Custom React hooks
-│   │   │   ├── useWallet.ts
-│   │   │   └── useLocalStorage.ts
-│   │   ├── types/                 # TypeScript types
-│   │   │   └── index.ts
-│   │   ├── utils/                 # Utility functions
-│   │   │   └── helpers.ts
-│   │   ├── config/                # Configuration
-│   │   │   └── index.ts
-│   │   ├── App.tsx                # Main App component
-│   │   ├── main.tsx               # Entry point
-│   │   └── index.css              # Tailwind directives
-│   ├── tailwind.config.js         # Tailwind configuration
-│   ├── postcss.config.js          # PostCSS configuration
-│   ├── package.json
-│   └── vite.config.ts
-├── README.md                      # This file
-└── PROJECT_SUMMARY.md             # Project summary
-```
+
+---
+
+## 📦 Smart Contract Info
+
+### Deployment Information
+
+> **Note**: Contract sẽ được deploy lên IOTA Testnet
+
+#### Package Information
+- **Package ID**: `[Sẽ cập nhật sau khi deploy]`
+- **Module**: `bank_transaction`
+- **Network**: IOTA Testnet
+
+#### Transaction Links
+- **Deployment TX**: [View on Explorer](#)
+- **Package Explorer**: [View Package](#)
+- **Ledger Object**: [View Object](#)
+
+#### Contract Functions
+- `create_ledger()` - Khởi tạo sổ cái giao dịch
+- `record_transaction()` - Ghi lại giao dịch lên blockchain
+- `get_transaction_details()` - Lấy thông tin giao dịch
+
+---
+
+## 🎨 Features
+
+### ✅ Đã hoàn thành
+
+#### Frontend
+- [x] Giao diện sang trọng đen-vàng kim
+- [x] Balance card với toggle show/hide
+- [x] Username display (Ikaris)
+- [x] Account number ẩn với nút hiển thị
+- [x] Quick actions menu
+- [x] About section
+- [x] How to use guide
+- [x] Recent transactions section
+- [x] Responsive design
+- [x] Shimmer & glow effects
+
+#### Smart Contract
+- [x] Transaction ledger structure
+- [x] Record transaction function
+- [x] Event emission
+- [x] Immutable storage
+
+### 🔜 Coming Soon
+
+- [ ] Transfer functionality
+- [ ] Cards management
+- [ ] Investment features
+- [ ] Settings & preferences
+- [ ] Real wallet connection
+- [ ] Transaction history display
+- [ ] Multi-language support
+
+---
 
 ## 🛠️ Tech Stack
 
@@ -139,107 +179,138 @@ BlockUni_IOTA_ReflexMaster/
 - **Language**: Move
 - **Blockchain**: IOTA
 - **Network**: Testnet
+- **Framework**: IOTA Move Framework
 
 ### Frontend
 - **Framework**: React 19
-- **Build Tool**: Vite 7
 - **Language**: TypeScript 5
 - **Styling**: Tailwind CSS 3
-- **Fonts**: Google Fonts (Inter)
-
-### Development Tools
-- **Linting**: ESLint
-- **Type Checking**: TypeScript Compiler
-- **Package Manager**: npm
-- **PostCSS**: Autoprefixer
-
-## 📱 Hướng dẫn sử dụng
-
-1. **Kết nối ví** (Tùy chọn): Click "Connect Wallet" để kết nối IOTA wallet
-2. **Nhập thông tin chuyển khoản**:
-   - Tài khoản người nhận
-   - Số tiền (hoặc click "$100" để chọn nhanh)
-   - Nội dung chuyển khoản (tùy chọn)
-3. **Chuyển khoản**: Click "Chuyển khoản" để thực hiện giao dịch
-4. **Xác nhận**: Giao dịch sẽ được ghi lên blockchain và hiển thị trong lịch sử
-
-## 🎨 Tailwind CSS Features
-
-- ✅ Custom color palette matching original design
-- ✅ Custom animations (float, slide-up, pulse, spin, modal-slide-up)
-- ✅ Glassmorphism effects with backdrop-blur
-- ✅ Gradient backgrounds
-- ✅ Custom shadows
-- ✅ Responsive design utilities
-- ✅ Animation delays for staggered effects
-- ✅ Hover and focus states
-
-## 🔐 Bảo mật
-
-- ✅ Smart contract sử dụng `entry` functions để bảo vệ
-- ✅ TypeScript type safety
-- ✅ Input validation
-- ✅ Sử dụng `shared object` cho ledger
-- ✅ Event emission để tracking
-- ✅ Immutable transaction records
-
-## 🧪 Testing
-
-### Test Frontend
-
-```bash
-cd frontend
-npm run lint        # Run ESLint
-npm run build       # Test production build
-```
-
-### Test Smart Contract
-
-```bash
-cd move
-iota move build
-
-# Test trên testnet (sau khi deploy)
-iota client call --package [PACKAGE_ID] --module bank_transaction --function record_transaction --args [LEDGER_ID] "[FROM]" "[TO]" 100000000 [TIMESTAMP] "[TX_ID]" "[DESC]" --gas-budget 10000000
-```
-
-## 🌟 Tính năng nâng cao (Future)
-
-- [ ] Tích hợp IOTA Wallet SDK
-- [ ] Query transactions từ blockchain
-- [ ] Multi-signature transactions
-- [ ] Transaction filters và search
-- [ ] Export transaction history
-- [ ] Dark/Light mode toggle
-- [ ] Multi-language support (i18n)
-- [ ] Real-time notifications
-- [ ] Transaction analytics dashboard
-
-## 📚 Tài liệu tham khảo
-
-- [IOTA Documentation](https://docs.iota.org/)
-- [Move Language](https://move-language.github.io/move/)
-- [React Documentation](https://react.dev/)
-- [TypeScript Documentation](https://www.typescriptlang.org/)
-- [Vite Documentation](https://vite.dev/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/)
-
-## 👨‍💻 Phát triển
-
-**Developer**: BlockUni Team  
-**Smart Contract**: IOTA Move  
-**Frontend**: React + TypeScript + Tailwind CSS  
-**Network**: IOTA Testnet  
-**Version**: 2.0.0
-
-## 📄 License
-
-MIT License
-
-## 🤝 Đóng góp
-
-Mọi đóng góp đều được chào đón! Vui lòng tạo Pull Request hoặc Issue.
+- **Build Tool**: Vite 7
+- **Icons**: Lucide React
+- **Fonts**: Inter, Orbitron
 
 ---
 
-**Note**: Đây là phiên bản MVP (Minimum Viable Product) cho mục đích demo và học tập. Không sử dụng trong môi trường production với tiền thật.
+## 📖 Hướng dẫn sử dụng
+
+### Cho người dùng
+
+1. **Truy cập ứng dụng**
+   - Mở trình duyệt và truy cập URL của app
+   
+2. **Kết nối ví** (Coming soon)
+   - Click nút "Connect Wallet"
+   - Chọn ví IOTA của bạn
+   - Xác nhận kết nối
+
+3. **Khám phá tính năng**
+   - Xem số dư (mock data)
+   - Thử chức năng Transfer (đang phát triển)
+   - Xem lịch sử giao dịch
+
+4. **Lưu ý**
+   - ⚠️ Đây là demo platform
+   - 📊 Data hiện tại được mock
+   - 🔧 Smart contracts đang trong quá trình phát triển
+
+### Cho developers
+
+#### Deploy Contract
+
+```bash
+# Build
+cd move
+iota move build
+
+# Deploy
+iota client publish --gas-budget 100000000
+
+# Lưu Package ID và cập nhật vào README
+```
+
+#### Update Frontend Config
+
+```typescript
+// Cập nhật sau khi deploy
+const CONFIG = {
+  packageId: 'YOUR_PACKAGE_ID',
+  ledgerId: 'YOUR_LEDGER_ID',
+};
+```
+
+#### Build for Production
+
+```bash
+cd frontend-new
+npm run build
+# Deploy dist/ folder lên hosting
+```
+
+---
+
+## 🔐 Bảo mật
+
+- ✅ Smart contract sử dụng `entry` functions
+- ✅ Input validation
+- ✅ Immutable transaction records
+- ✅ Event emission cho tracking
+- ✅ Shared object pattern cho ledger
+
+---
+
+## 📄 License
+
+MIT License - xem file [LICENSE](LICENSE) để biết thêm chi tiết
+
+---
+
+## 👥 Đóng góp
+
+Mọi đóng góp đều được chào đón! Vui lòng:
+
+1. Fork repository
+2. Tạo branch mới (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Mở Pull Request
+
+---
+
+## 📞 Liên hệ
+
+- **Project**: BlockBank - Web3 Banking Platform
+- **Developer**: BlockUni Team
+- **Email**: [your-email@example.com]
+- **GitHub**: [your-github-profile]
+
+---
+
+## ⚠️ Disclaimer
+
+**Lưu ý quan trọng:**
+
+- Đây là một dự án học tập và demo
+- Không sử dụng với tiền thật hoặc dữ liệu nhạy cảm
+- Smart contracts chưa được audit
+- Chỉ sử dụng trên testnet
+- Developers không chịu trách nhiệm về bất kỳ tổn thất nào
+
+---
+
+## 🙏 Acknowledgments
+
+- [IOTA Foundation](https://www.iota.org/) - Blockchain platform
+- [Move Language](https://move-language.github.io/move/) - Smart contract language
+- [React](https://react.dev/) - Frontend framework
+- [Tailwind CSS](https://tailwindcss.com/) - Styling framework
+- [Lucide](https://lucide.dev/) - Icon library
+
+---
+
+<div align="center">
+
+**Made with ❤️ for the Web3 community**
+
+⭐ Star this repo if you find it helpful!
+
+</div>

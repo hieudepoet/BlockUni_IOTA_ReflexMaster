@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-900 text-gray-100 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600;
+  }
+
+  .border-gradient-gold {
+    border-image: linear-gradient(to right, #FBBF24, #F59E0B, #D97706) 1;
+  }
+
+  .shimmer-effect {
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(245, 158, 11, 0.1) 50%,
+        transparent 100%);
+    background-size: 200% 100%;
+  }
+}
+
+/* Custom styles for IOTA dApp Kit ConnectButton */
+@layer components {
+  .wallet-button-container button {
+    @apply bg-gold-500 hover:bg-gold-600 text-dark-900 font-semibold rounded-lg px-6 py-2.5 transition-all duration-300;
+  }
+
+  .wallet-button-container button:hover {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+  }
+}
