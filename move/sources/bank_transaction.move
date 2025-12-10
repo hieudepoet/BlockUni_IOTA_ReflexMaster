@@ -5,7 +5,6 @@ module bank_transaction_ledger::bank_transaction {
     use iota::event;
     use std::string::{Self, String};
 
-    /// Struct đại diện cho một giao dịch chuyển khoản
     public struct Transaction has key, store {
         id: UID,
         from_account: String,
@@ -16,13 +15,11 @@ module bank_transaction_ledger::bank_transaction {
         description: String,
     }
 
-    /// Struct lưu trữ lịch sử giao dịch
     public struct TransactionLedger has key {
         id: UID,
         owner: address,
     }
 
-    /// Event được phát ra khi có giao dịch mới
     public struct TransactionRecorded has copy, drop {
         transaction_id: String,
         from_account: String,
@@ -31,7 +28,6 @@ module bank_transaction_ledger::bank_transaction {
         timestamp: u64,
     }
 
-    /// Khởi tạo ledger cho người dùng
     public entry fun create_ledger(ctx: &mut TxContext) {
         let ledger = TransactionLedger {
             id: object::new(ctx),
@@ -40,7 +36,6 @@ module bank_transaction_ledger::bank_transaction {
         transfer::share_object(ledger);
     }
 
-    /// Ghi lại một giao dịch chuyển khoản lên blockchain
     public entry fun record_transaction(
         _ledger: &mut TransactionLedger,
         from_account: vector<u8>,
@@ -79,7 +74,6 @@ module bank_transaction_ledger::bank_transaction {
         transfer::public_transfer(transaction, tx_context::sender(ctx));
     }
 
-    /// Hàm getter để lấy thông tin giao dịch
     public fun get_transaction_details(transaction: &Transaction): (String, String, u64, u64, String) {
         (
             transaction.from_account,
