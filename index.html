@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlockBank - Blockchain Banking</title>
+    <meta name="description" content="Secure digital banking with blockchain-powered transaction history">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <rect width="32" height="32" rx="8" fill="url(#gradient1)"/>
+                            <path d="M16 8L22 12V20L16 24L10 20V12L16 8Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="gradient1" x1="0" y1="0" x2="32" y2="32">
+                                    <stop offset="0%" stop-color="#6366f1"/>
+                                    <stop offset="100%" stop-color="#8b5cf6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h1>BlockBank</h1>
+                </div>
+                <div class="wallet-info" id="walletInfo">
+                    <button class="btn-connect" id="connectWallet">Connect Wallet</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Balance Card -->
+            <section class="balance-section">
+                <div class="balance-card">
+                    <div class="balance-header">
+                        <span class="balance-label">Số dư khả dụng</span>
+                        <div class="blockchain-badge">
+                            <span class="pulse-dot"></span>
+                            <span>IOTA Testnet</span>
+                        </div>
+                    </div>
+                    <div class="balance-amount">
+                        <span class="currency">$</span>
+                        <span id="balanceAmount">10,000.00</span>
+                    </div>
+                    <div class="account-number">
+                        Account: <span id="accountNumber">****1234</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Transfer Section -->
+            <section class="transfer-section">
+                <div class="section-header">
+                    <h2>Chuyển khoản</h2>
+                    <p>Giao dịch được ghi lại bất biến trên blockchain</p>
+                </div>
+
+                <div class="transfer-card">
+                    <form id="transferForm">
+                        <div class="form-group">
+                            <label for="recipientAccount">Tài khoản người nhận</label>
+                            <input 
+                                type="text" 
+                                id="recipientAccount" 
+                                placeholder="Nhập số tài khoản hoặc địa chỉ ví"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="amount">Số tiền (USD)</label>
+                            <div class="amount-input-wrapper">
+                                <span class="currency-symbol">$</span>
+                                <input 
+                                    type="number" 
+                                    id="amount" 
+                                    placeholder="0.00"
+                                    step="0.01"
+                                    min="0.01"
+                                    required
+                                >
+                                <button type="button" class="quick-amount" data-amount="100">$100</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Nội dung chuyển khoản</label>
+                            <input 
+                                type="text" 
+                                id="description" 
+                                placeholder="Nhập nội dung (tùy chọn)"
+                            >
+                        </div>
+
+                        <button type="submit" class="btn-transfer" id="transferBtn">
+                            <span class="btn-text">Chuyển khoản</span>
+                            <span class="btn-icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Transaction History -->
+            <section class="history-section">
+                <div class="section-header">
+                    <h2>Lịch sử giao dịch</h2>
+                    <p>Được bảo vệ bởi IOTA blockchain</p>
+                </div>
+
+                <div class="transaction-list" id="transactionList">
+                    <div class="empty-state">
+                        <div class="empty-icon">
+                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="32" fill="#f3f4f6"/>
+                                <path d="M32 20V44M20 32H44" stroke="#9ca3af" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <p>Chưa có giao dịch nào</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <p id="loadingText">Đang xử lý giao dịch...</p>
+            </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div class="modal" id="successModal">
+            <div class="modal-content success">
+                <div class="modal-icon">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="32" fill="#10b981" opacity="0.1"/>
+                        <path d="M20 32L28 40L44 24" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>Giao dịch thành công!</h3>
+                <p id="successMessage">Giao dịch đã được ghi lại trên blockchain</p>
+                <div class="transaction-details" id="txDetails"></div>
+                <button class="btn-close" onclick="closeModal()">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
